@@ -15,7 +15,7 @@ int n, m, s, arr[1005][1005];
 int main() {
     memset(arr, 0x3F, sizeof(arr));
     cin >> n >> m >> s;
-    // 点 自己到自己的全值为0
+    // 点 自己到自己的权值为0
     for (int i = 1; i <= n; i++) {
         arr[i][i] = 0;
     }
@@ -26,6 +26,7 @@ int main() {
         arr[s][e] = min(arr[s][e], v);
         arr[e][s] = min(arr[e][s], v);
     }
+
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= n; j++) {
             for (int k = 1; k <= n; k++) {
@@ -34,7 +35,6 @@ int main() {
         }
     }
 
-
     for (int i = 1; i <= n; i++) {
         if (arr[s][i] != 0x3F3F3F3F) {
             cout << arr[s][i] << endl;
@@ -42,7 +42,6 @@ int main() {
             cout << -1 << endl;
         }
     }
-
 
     return 0;
 }
